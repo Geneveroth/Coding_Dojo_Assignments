@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Disappearing Ninja</title>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script>$( document ).ready(function() {
+            $('img') .click(function(){
+                $(this) .fadeOut();
+            });
+            $('button') .click(function(){
+                $('img') .fadeIn();
+            });
+          });</script>
+    </head>
+    <body>
+        <p><img src="Ninja.webp" alt="ninja" width="150px">
+            <img src="Ninja.webp" alt="ninja" width="150px">
+            <img src="Ninja.webp" alt="ninja" width="150px">
+            <img src="Ninja.webp" alt="ninja" width="150px">
+            <img src="Ninja.webp" alt="ninja" width="150px">
+            <img src="Ninja.webp" alt="ninja" width="150px">
+            <img src="Ninja.webp" alt="ninja" width="150px">
+            <img src="Ninja.webp" alt="ninja" width="150px">
+        </p>
+        <button>Restore</button>
+    </body>
+</html>

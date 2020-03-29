@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <title>Sam's Badass Weather App!</title>
+        <script>$(document).ready(function($){
+                var appId='abc8bbb456d293a6bdc509a7f8e2402a';
+                $('.formInit').submit(function() {
+                    var location= $('input') .val();
+                    var url=`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&&appid=${appId}`;
+                    $ .get(url, function(res) {
+                        console.log(res);
+                        var stats ='';
+                        var iconimg= `${res ['weather'][0]['icon']}`
+                        $('<img src=`http://openweathermap.org/img/wn/',iconimg,'+@2x.png`>').insertAfter('.reply');  //I couldn't get the weather icon to appear
+                        stats += `<h2>${res ['name']}</h2>`;
+                        stats += `<h4>Temp: ${res ['main']['temp']}°F</h4>`;
+                        stats += `<h4>${res['weather'][0]['description']}</h4>`;
+                        $('.reply') .html(stats);
+                                           
+                    }
+                    ,'json');  
+                return false;  
+                $('.more button').submit(function() { 
+                    $ .get(url, function(res) {   
+                        //I couldn't get this button to function
+                        var stats2 =''
+                        stats2 += `<h4>${res ['main'] ['humidity']}% Humidity</h4>`;
+                        stats2 += `<h4>Minimum Temp: ${res ['main'] ['temp_min']}°F</h4>`;
+                        stats2 += `<h4>Max Temp: ${res ['main'] ['temp_max']}°F</h4>`;
+                        stats2 += `<h4>Wind: ${res ['wind'] ['speed']}mph</h4>`;
+                        stats2 += `<h4>Rain: ${res ['rain'] ['1h']}mm in the last hour</h4>`;
+                         $('.more') .html(stats2);
+                    }
+                        ,'json');     
+                    return false;          
+                        });
+                    });
+                 });         
+        </script>
+    </head>
+    <body>
+        <h1>What's the Weather?</h1>
+        <form class='formInit'>
+            <input type="text" placeholder="Enter a City Name">
+            <button class="btn btn-secondary">Search</button>
+        </form>
+        <div class="reply"></div>
+        <div class="more"></div>
+            <button>Click for More Details</button>
+                
+    </body>
+</html>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

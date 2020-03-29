@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>jQuery Functions</title>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script>$(document).ready(function(){
+            $(".b1") .click(function(){
+                $(".d1") .html("<p> Clicking the button made this text appear!</p>");
+            });
+            $(".b2") .click(function(){
+                $(".p1") .attr("style","color:red");
+            });
+            $(".b3") .click(function(){
+                $("input") .val("This is new text!");
+            });
+            $(".b4") .click(function(){
+                $(".p2") .text(".text can replace text of an HTML element!");
+            })
+         
+        
+      
+        });
+        </script>
+    </head>
+    <body>
+        <h1>.html Function</h1>
+        <button class="b1">Click me and watch below!</button>
+        <div class="d1"></div>
+        <h1>.attr Function</h1>
+        <button class="b2">Click me to change text color!</button><br>
+        <p class="p1">This text will change color!</p>
+        <h1>.val Function</h1>
+        <button class="b3">Click me to create new text!</button>
+        <input type="text"><br>
+        <h1>.text Function</h1>
+        <button class="b4">Click me to change the text!</button>
+        <p class="p2">What can .text do?</p>     
+    </body>
+</html>
+   

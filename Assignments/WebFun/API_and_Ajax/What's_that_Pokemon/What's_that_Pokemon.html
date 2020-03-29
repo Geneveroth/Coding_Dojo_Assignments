@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Who's that Pokemon?</title>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script>$(document).ready(function(){
+            $('.specs') .hide();
+            alert ("Click a Pokemon for its stats!");
+            $.get("https://pokeapi.co/api/v2/pokemon/charizard/", function(res){
+                console.log(res);                
+            });
+            var html_img="";
+            for (var i=1; i<51; i++){
+               html_img+='<img id="'+i+'" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png">';
+            }
+                $('.pokemonimg') .html(html_img);
+                $('.pokemonimg img') .click(function(){
+                    var id = $(this) .attr('id');
+                    console.log("it works" + id);
+                
+                $('.specs') .toggle();
+                
+                $.get('https://pokeapi.co/api/v2/pokemon/'+id, function(res){
+                var stats ='';
+
+                stats += `<h1>Name: ${res ['name']}</h1>`;
+                stats += `<img src="${res ['sprites']['front_default']}">`;
+                stats += '<h2>Types:</h2>';
+                for(var i=0;i<res['types'].length;i++ ){
+                stats += `<ul><li>${res['types'][i].type.name}</li></ul>`;
+                }
+                stats += `<h2>Height:</h2><p> ${res['height']}</p>`;
+                stats += `<h2>Weight:</h2><p> ${res ['weight']}</p>`; 
+                $('.specs') .html(stats);  
+                });  
+            });         
+        }); 
+        </script>
+    </head>
+    <body>
+        <div class="pokemonimg"></div>
+        <div class="specs"></div>   
+    </body>
+</html>
