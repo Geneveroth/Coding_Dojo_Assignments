@@ -8,11 +8,27 @@
         <title>Sam's Badass EverQuest II Item Searcher!</title>
         <script>$(document).ready(function($){
                 var appId='s:aluvas';
-                var url=`http://census.daybreakgames.com/${appId}get/eq2/`;
-        });
+                $('.items').submit(function() {
+                    var itemName=$('input') .val();
+                    var urlItemName=`https://census.daybreakgames.com/json/${appId}/get/eq2/item/?displayname=^${itemName}&c:show=displayname&c:limit=10&c:case=false`;
+                    $ .get(urlItemName, function(res) {
+                        console.log(itemName);
+                        var itemRes='';
+                        itemRes += `<h2>${res['id']}</h2>`;
+                        $('reply') .html(itemRes);
+                    }
+                    ,'json');
+                return false;
+                });
+            });
         </script>
     </head>
     <body>
-        
+        <h1>Enter an Item Name:</h1>
+        <form class='items'>
+            <input type="text" placeholder="Search">
+            <button class="btn btn-secondary">Search</button>
+        </form>
+        <div class="reply"></div>
     </body>
 </html>
