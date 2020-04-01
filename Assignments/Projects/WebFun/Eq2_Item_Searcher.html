@@ -11,7 +11,7 @@
                 $('.items').submit(function() {
                     var itemName=$('input') .val();
                     var urlItemName=`https://census.daybreakgames.com/json/${appId}/get/eq2/item/?displayname=^${itemName}&c:show=displayname&c:limit=10&c:case=false`;
-                    $ .get(urlItemName, function(res) {
+                    $ .get(urlItemName+"?callback=?", function(res) {
                         console.log(itemName);
                         var itemRes='';
                         itemRes += `<h2>${res['id']}</h2>`;
