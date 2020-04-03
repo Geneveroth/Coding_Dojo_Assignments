@@ -1,43 +1,17 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-         <meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="Mystylesheet" type="text/css" href="style.css">
-        
-        <title>Sam's Badass EverQuest II Item Searcher!</title>
-        <div class="jumbotron">
-            <div class="container">
-                <div class="row">
-                    <div class="col-2">
-                    </div>
-                    <div class="col-8">
-                        <h1 class="display-4">
-                            <a href="https://everquest2.com">
-                                <img class="logo" src="https://pbs.twimg.com/profile_images/883059963710631939/w6o0PzQm_400x400.jpg" alt="eq2" width="75"> 
-                            </a>
-                        Find your Items
-                        <p class="lead">Search by name or by slot and stat!
-                        </p>
-                        </h1>
-                    </div>
-                    <div class="col-2">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
         <script>
         $(document).ready(function($){
-            $( function() {
-                 $( document ).tooltip();
-             });
+            $('.popup') .hide();
             var appId='s:aluvas';
                 $('.items').submit(function(event){
                     event.preventDefault();
@@ -53,240 +27,264 @@
                             var temp= '';
                             for(let i=0; i < res.item_list.length; i++){
                                 console.log(res.item_list[i].displayname)
-                                temp += `<h4><ul><li title="To display stats for ${res.item_list[i].displayname}"> ${res.item_list[i].displayname}</li></ul></h4>`;
+                                temp += `<h6><ul> ${res.item_list[i].displayname}</li></ul></h6>`;
                             }
                             $('.reply').html(temp);
                         }
                     });
+                    
+
+$( ".popup" ).dialog({ autoOpen: false });
+$( ".ready" ).click(function() {
+  $( ".popup" ).dialog( "open" );
+});
+
                 });
         });
         </script>
+    <title>Sam's Badass EverQuest II Item Searcher!</title>
     </head>
     <body>
-        <div class="row">
-            <div class="col-md">
-                <img src="https://i.gifer.com/PkU6.gif" alt="sconce" class="sconce">
+        <div class="popup" title="Dialog Title">I'm a dialog</div>
+        <div class="container_Main">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2">
+                        </div>
+                        <div class="col-8">
+                            <h1 class="display-4">
+                                <a href="https://everquest2.com">
+                                    <img class="logo" src="https://pbs.twimg.com/profile_images/883059963710631939/w6o0PzQm_400x400.jpg" alt="eq2"> 
+                                </a>
+                            Find your Items
+                            <p class="lead">Search by name or by slot and stat!
+                            </p>
+                            </h1>
+                        </div>
+                        <div class="col-2">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg">
-                <h3>Item Name</h3>
-                <form class='items'>
-                    <input type="text" placeholder="Enter an Item Name">
-                    <button class="btn btn-secondary">Search</button>
-                </form>
+            <div class="row">
+                <div class="col-md">
+                    <img src="https://i.gifer.com/PkU6.gif" alt="sconce" class="sconce">
+                </div>
+                <div class="col-lg">
+                    <h3>Item Name</h3>
+                    <form class='items'>
+                        <input type="text" placeholder="Enter an Item Name">
+                        <button class="btn btn-secondary">Search</button>
+                    </form>
+                </div>
+                <div class="col-md">
+                    <img src="https://i.gifer.com/PkU6.gif" alt="sconce" class="sconce1">
+                </div>
             </div>
-            <div class="col-md">
-                <img src="https://i.gifer.com/PkU6.gif" alt="sconce" class="sconce">
+                
+            <div class="container_Reply">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="reply">
+                        </div>
+                    </div>
+                </div> 
             </div>
-        </div>
             
-        <div class="container_Reply">
-            <div class="row justify-content-center">
-                <div class="col-4">
-                    <div class="reply">
-                    </div>
-                </div>
-            </div> 
-        </div>
-        
-        <div class="container_Mid">
-            <div class="row justify-content-center">
-                <div class="col-4">
-                    <h5>or</h5>
-                    <h3>Slot and Stat</h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="container_dropdown">
-            <div class="slotMenu">
+            <div class="container_Mid">
                 <div class="row justify-content-center">
-                    <div class="col-2">
-                        <select class="custom-select custom-select-med mb-3">
-                            <option selected>Slot</option>
-                            <option value="1">Ammo</option>
-                            <option value="2">Charm</option>
-                            <option value="3">Chest</option>
-                            <option value="4">Cloak</option>
-                            <option value="5">Ear</option>
-                            <option value="6">Feet</option>
-                            <option value="7">Finger</option>
-                            <option value="8">Forearms</option>
-                            <option value="9">Hands</option>
-                            <option value="10">Head</option>
-                            <option value="11">Legs</option>
-                            <option value="12">Neck</option>
-                            <option value="13">Primary</option>
-                            <option value="14">Ranged</option>
-                            <option value="15">Secondary</option>
-                            <option value="16">Shoulders</option>
-                            <option value="17">Waist</option>
-                            <option value="18">Wrist</option>
-                        </select>
+                    <div class="col-4">
+                        <h4>or</h4>
+                        <h3>Slot and Stat</h3>
                     </div>
                 </div>
             </div>
 
-            <div class="statMenu">
-                <div class="row justify-content-center">
-                    <div class="col-lg-auto">  
-                        <select class="custom-select custom-select-med mb-3">
-                            <option selected>Stat</option>
-                            <optgroup label="Base">
-                                <option value="1">Agility</option>
-                                <option value="2">Health</option>
-                                <option value="3">Intelligence</option>
-                                <option value="4">Power</option>
-                                <option value="5">Stamina</option>
-                                <option value="6">Strength</option>
-                                <option value="7">Wisdom</option>
-                            </optgroup>
-                            <optgroup label="Melee/Ranged">
-                                <option value="12">Accuracy</option>
-                                <option value="13">Additional Chance to Riposte</option>
-                                <option value="15">AE Autoattack Chance</option>
-                                <option value="16">Aggression</option>
-                                <option value="17">Ammo Conservation</option>
-                                <option value="20">Attack Speed</option>
-                                <option value="21">Base Taunt Amount</option>
-                                <option value="22">Block Chance</option>
-                                <option value="24">Combat Art Damage</option>
-                                <option value="27">Crit Bonus</option>
-                                <option value="28">Crit Chance</option>
-                                <option value="30">Crushing</option>
-                                <option value="40">Extra Shield Block Chance</option>
-                                <option value="44">Flurry Chance</option>
-                                <option value="58">Melee Crit Bonus</option>
-                                <option value="59">Melee Crit Chance</option>
-                                <option value="60">Melee Damage</option>
-                                <option value="69">Multi-Attack Chance</option>
-                                <option value="77">Piercing</option>
-                                <option value="86">Range</option>
-                                <option value="87">Ranged</option>
-                                <option value="88">Ranged Crit Bonus</option>
-                                <option value="89">Ranged Crit Chance</option>
-                                <option value="90">Ranged Double Attack Chance</option>
-                                <option value="96">Shield Effectiveness</option>
-                                <option value="97">Slashing</option>
-                            </optgroup>
-                            <optgroup label="Spells">                                   
-                                <option value="33">Damage Spell Crit Bonus</option>
-                                <option value="34">Damage Spell Crit Chance</option>
-                                <option value="38">Disruption</option>
-                                <option value="45">Focus</option>
-                                <option value="49">Heal</option>
-                                <option value="50">Heal Amount</option>
-                                <option value="51">Heal Crit Bonus</option>
-                                <option value="52">Heal Crit Chance</option>
-                                <option value="65">Ministration</option>
-                                <option value="70">Ordination</option>
-                                <option value="100">Spell and Heal Amount</option>
-                                <option value="101">Spell Damage</option>
-                                <option value="102">Spell Reuse Speed</option>
-                                <option value="103">Spell Weapon Attack Speed</option>
-                                <option value="104">Spell Weapon Auto-Attack Chance</option>
-                                <option value="105">Spell Weapon Auto-Attack Speed</option>
-                                <option value="106">Spell Weapon Damage Per Second</option>
-                                <option value="107">Spell Weapon Double Attack Chance</option>
-                                <option value="108">Spell Weapon Multi-Attack Chance</option>
-                                <option value="110">Subjugation</option>
-                            </optgroup>
-                            <optgroup label="Tradeskills">
-                                <option value="14"> Adorning </option> 
-                                <option value="18">Artificing</option>        
-                                <option value="19">Artistry</option>
-                                <option value="23">Chemistry</option>
-                                <option value="42">Fishing</option>
-                                <option value="43">Fletching</option>
-                                <option value="46">Foresting</option>
-                                <option value="47">Gathering</option>
-                                <option value="61">Metal Shaping</option>
-                                <option value="62">Metalworking</option>
-                                <option value="64">Mining</option>
-                                <option value="94">Scribing</option>
-                                <option value="95">Sculpting</option>
-                                <option value="112">Tailoring</option>
-                                <option value="114">Tinkering</option>
-                                <option value="116">Tradeskill XP Gain</option>
-                                <option value="117">Transmuting</option>
-                                <option value="118">Trapping</option>
-                            </optgroup>
-                            <optgroup label="Resist">
-                                <option value="120">vs Arcane</option>
-                                <option value="121">vs Cold</option>
-                                <option value="122">vs Crushing</option>
-                                <option value="123">vs Disease</option>
-                                <option value="124">vs Divine</option>
-                                <option value="125">vs Elemental</option>
-                                <option value="126">vs Heat</option>
-                                <option value="127">vs Magic</option>
-                                <option value="128">vs Mental</option>
-                                <option value="129">vs Noxious</option>
-                                <option value="130">vs Physical</option>
-                                <option value="131">vs Piercing</option>
-                                <option value="132">vs Poison</option>
-                                <option value="133">vs Slashing</option>
-                            </optgroup>
-                            <optgroup label="Other">
-                                <option value="8">Ability Casting Speed</option>
-                                <option value="9">Ability Modifier</option>
-                                <option value="10">Ability Recovery Time</option>
-                                <option value="11">Ability Reuse Time</option>                          
-                                <option value="25">Combat HP Regen</option>
-                                <option value="26">Combat Mana Regen</option>
-                                <option value="29">Critical Mitigation</option>
-                                <option value="31">Damage</option>
-                                <option value="32">Damage Per Second</option>
-                                <option value="35">Defense</option>
-                                <option value="36">Deflection</option>
-                                <option value="37">Deflection Chance</option>
-                                <option value="39">Extra Dodge Chance</option>
-                                <option value="41">Falling Damage Reduction</option>
-                                <option value="48">Hate Gain</option>
-                                <option value="53">In-Combat Run Speed</option>
-                                <option value="54">In-Combat Health Regeneration Per Tick</option>
-                                <option value="55">In-Combat Power Regeneration Per Tick</option>
-                                <option value="56">Max Health</option>
-                                <option value="57">Max Power</option>
-                                <option value="63">Minimum Deflection Chance</option>
-                                <option value="66">Mitigation</option>
-                                <option value="67">Mount Speed</option>
-                                <option value="68">Movement Bonus while Stealthed or Invisible</option>
-                                <option value="71">Out-of-Combat Run Speed</option>
-                                <option value="72">Out-of-Combat Health Regeneration</option>
-                                <option value="73">Out-of-Combat Health Regeneration per Tick</option>
-                                <option value="74">Out-of-Combat Power Regeneration per Tick</option>
-                                <option value="75">Parry</option>
-                                <option value="76">Parry Chance</option>
-                                <option value="78">Potency</option>
-                                <option value="79">Protection</option>
-                                <option value="80">PvP Crit Bonus</option>
-                                <option value="81">PvP Critical Mitigation</option>
-                                <option value="82">PvP Multi-Attack Chance</option>
-                                <option value="83">PvP Potency</option>
-                                <option value="84">PvP Spell Multi-Attack Chance</option>
-                                <option value="85">PvP Toughness</option>
-                                <option value="91">Riposte Chance</option>
-                                <option value="92">Riposte Damage</option>
-                                <option value="93">Safe Fall</option>
-                                <option value="98">Slots</option>
-                                <option value="99">Spell and Combat Art Damage</option>
-                                <option value="109">Strikethrough</option>
-                                <option value="111">Swimming</option>
-                                <option value="113">Taunt and Combat Art Amount</option>
-                                <option value="115">Tracking Avoidance</option>
-                                <option value="119">Weight Reduction</option>
-                            </optgroup>
-                        </select>  
-                    </div>  
+            <div class="container_dropdown">
+                <div class="slotMenu">
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <select class="custom-select custom-select-med mb-3">
+                                <option selected>Slot</option>
+                                <option value="1">Ammo</option>
+                                <option value="2">Charm</option>
+                                <option value="3">Chest</option>
+                                <option value="4">Cloak</option>
+                                <option value="5">Ear</option>
+                                <option value="6">Feet</option>
+                                <option value="7">Finger</option>
+                                <option value="8">Forearms</option>
+                                <option value="9">Hands</option>
+                                <option value="10">Head</option>
+                                <option value="11">Legs</option>
+                                <option value="12">Neck</option>
+                                <option value="13">Primary</option>
+                                <option value="14">Ranged</option>
+                                <option value="15">Secondary</option>
+                                <option value="16">Shoulders</option>
+                                <option value="17">Waist</option>
+                                <option value="18">Wrist</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="statMenu">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-auto">  
+                            <select class="custom-select custom-select-med mb-3">
+                                <option selected>Stat</option>
+                                <optgroup label="Base">
+                                    <option value="1">Agility</option>
+                                    <option value="2">Health</option>
+                                    <option value="3">Intelligence</option>
+                                    <option value="4">Power</option>
+                                    <option value="5">Stamina</option>
+                                    <option value="6">Strength</option>
+                                    <option value="7">Wisdom</option>
+                                </optgroup>
+                                <optgroup label="Melee/Ranged">
+                                    <option value="12">Accuracy</option>
+                                    <option value="13">Additional Chance to Riposte</option>
+                                    <option value="15">AE Autoattack Chance</option>
+                                    <option value="16">Aggression</option>
+                                    <option value="17">Ammo Conservation</option>
+                                    <option value="20">Attack Speed</option>
+                                    <option value="21">Base Taunt Amount</option>
+                                    <option value="22">Block Chance</option>
+                                    <option value="24">Combat Art Damage</option>
+                                    <option value="27">Crit Bonus</option>
+                                    <option value="28">Crit Chance</option>
+                                    <option value="30">Crushing</option>
+                                    <option value="40">Extra Shield Block Chance</option>
+                                    <option value="44">Flurry Chance</option>
+                                    <option value="58">Melee Crit Bonus</option>
+                                    <option value="59">Melee Crit Chance</option>
+                                    <option value="60">Melee Damage</option>
+                                    <option value="69">Multi-Attack Chance</option>
+                                    <option value="77">Piercing</option>
+                                    <option value="86">Range</option>
+                                    <option value="87">Ranged</option>
+                                    <option value="88">Ranged Crit Bonus</option>
+                                    <option value="89">Ranged Crit Chance</option>
+                                    <option value="90">Ranged Double Attack Chance</option>
+                                    <option value="96">Shield Effectiveness</option>
+                                    <option value="97">Slashing</option>
+                                </optgroup>
+                                <optgroup label="Spells">                                   
+                                    <option value="33">Damage Spell Crit Bonus</option>
+                                    <option value="34">Damage Spell Crit Chance</option>
+                                    <option value="38">Disruption</option>
+                                    <option value="45">Focus</option>
+                                    <option value="49">Heal</option>
+                                    <option value="50">Heal Amount</option>
+                                    <option value="51">Heal Crit Bonus</option>
+                                    <option value="52">Heal Crit Chance</option>
+                                    <option value="65">Ministration</option>
+                                    <option value="70">Ordination</option>
+                                    <option value="100">Spell and Heal Amount</option>
+                                    <option value="101">Spell Damage</option>
+                                    <option value="102">Spell Reuse Speed</option>
+                                    <option value="103">Spell Weapon Attack Speed</option>
+                                    <option value="104">Spell Weapon Auto-Attack Chance</option>
+                                    <option value="105">Spell Weapon Auto-Attack Speed</option>
+                                    <option value="106">Spell Weapon Damage Per Second</option>
+                                    <option value="107">Spell Weapon Double Attack Chance</option>
+                                    <option value="108">Spell Weapon Multi-Attack Chance</option>
+                                    <option value="110">Subjugation</option>
+                                </optgroup>
+                                <optgroup label="Tradeskills">
+                                    <option value="14"> Adorning </option> 
+                                    <option value="18">Artificing</option>        
+                                    <option value="19">Artistry</option>
+                                    <option value="23">Chemistry</option>
+                                    <option value="42">Fishing</option>
+                                    <option value="43">Fletching</option>
+                                    <option value="46">Foresting</option>
+                                    <option value="47">Gathering</option>
+                                    <option value="61">Metal Shaping</option>
+                                    <option value="62">Metalworking</option>
+                                    <option value="64">Mining</option>
+                                    <option value="94">Scribing</option>
+                                    <option value="95">Sculpting</option>
+                                    <option value="112">Tailoring</option>
+                                    <option value="114">Tinkering</option>
+                                    <option value="116">Tradeskill XP Gain</option>
+                                    <option value="117">Transmuting</option>
+                                    <option value="118">Trapping</option>
+                                </optgroup>
+                                <optgroup label="Resist">
+                                    <option value="120">vs Arcane</option>
+                                    <option value="121">vs Cold</option>
+                                    <option value="122">vs Crushing</option>
+                                    <option value="123">vs Disease</option>
+                                    <option value="124">vs Divine</option>
+                                    <option value="125">vs Elemental</option>
+                                    <option value="126">vs Heat</option>
+                                    <option value="127">vs Magic</option>
+                                    <option value="128">vs Mental</option>
+                                    <option value="129">vs Noxious</option>
+                                    <option value="130">vs Physical</option>
+                                    <option value="131">vs Piercing</option>
+                                    <option value="132">vs Poison</option>
+                                    <option value="133">vs Slashing</option>
+                                </optgroup>
+                                <optgroup label="Other">
+                                    <option value="8">Ability Casting Speed</option>
+                                    <option value="9">Ability Modifier</option>
+                                    <option value="10">Ability Recovery Time</option>
+                                    <option value="11">Ability Reuse Time</option>                          
+                                    <option value="25">Combat HP Regen</option>
+                                    <option value="26">Combat Mana Regen</option>
+                                    <option value="29">Critical Mitigation</option>
+                                    <option value="31">Damage</option>
+                                    <option value="32">Damage Per Second</option>
+                                    <option value="35">Defense</option>
+                                    <option value="36">Deflection</option>
+                                    <option value="37">Deflection Chance</option>
+                                    <option value="39">Extra Dodge Chance</option>
+                                    <option value="41">Falling Damage Reduction</option>
+                                    <option value="48">Hate Gain</option>
+                                    <option value="53">In-Combat Run Speed</option>
+                                    <option value="54">In-Combat Health Regeneration Per Tick</option>
+                                    <option value="55">In-Combat Power Regeneration Per Tick</option>
+                                    <option value="56">Max Health</option>
+                                    <option value="57">Max Power</option>
+                                    <option value="63">Minimum Deflection Chance</option>
+                                    <option value="66">Mitigation</option>
+                                    <option value="67">Mount Speed</option>
+                                    <option value="68">Movement Bonus while Stealthed or Invisible</option>
+                                    <option value="71">Out-of-Combat Run Speed</option>
+                                    <option value="72">Out-of-Combat Health Regeneration</option>
+                                    <option value="73">Out-of-Combat Health Regeneration per Tick</option>
+                                    <option value="74">Out-of-Combat Power Regeneration per Tick</option>
+                                    <option value="75">Parry</option>
+                                    <option value="76">Parry Chance</option>
+                                    <option value="78">Potency</option>
+                                    <option value="79">Protection</option>
+                                    <option value="80">PvP Crit Bonus</option>
+                                    <option value="81">PvP Critical Mitigation</option>
+                                    <option value="82">PvP Multi-Attack Chance</option>
+                                    <option value="83">PvP Potency</option>
+                                    <option value="84">PvP Spell Multi-Attack Chance</option>
+                                    <option value="85">PvP Toughness</option>
+                                    <option value="91">Riposte Chance</option>
+                                    <option value="92">Riposte Damage</option>
+                                    <option value="93">Safe Fall</option>
+                                    <option value="98">Slots</option>
+                                    <option value="99">Spell and Combat Art Damage</option>
+                                    <option value="109">Strikethrough</option>
+                                    <option value="111">Swimming</option>
+                                    <option value="113">Taunt and Combat Art Amount</option>
+                                    <option value="115">Tracking Avoidance</option>
+                                    <option value="119">Weight Reduction</option>
+                                </optgroup>
+                            </select>  
+                        </div>  
+                    </div>   
                 </div>   
-            </div>   
+            </div>
         </div>  
-
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-            </script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-            </script> 
     </body>
 </html>

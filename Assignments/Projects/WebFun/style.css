@@ -2,6 +2,36 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: rgb(69,83,96);
+}
+.container_Main{
+    background-image: url(https://ae01.alicdn.com/kf/HTB1Twv6XfJNTKJjSspoq6A6mpXaj.jpg?size=514850&height=900&width=900&hash=195745098bc90a4cd97b47874e034615);
+    margin:auto;
+    color: white;
+}
+.jumbotron{
+    padding:5px;
+    margin: 0 215px;
+    color: slategray;
+    border-radius: 20px;
+    text-align: center;
+    
+}
+
 .logo{
+    width: 70px;
     border-radius: 10px;
+}
+.reply{
+    margin-top: -108px;
+}
+.sconce1{
+    float:right;
+}
+.container_Reply .col-lg-4{
+    margin-bottom: 240px;
+}
+.container_Mid .row{
+    margin-top: -250px;
 }
