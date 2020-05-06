@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job</title>
+</head>
+<body>
+    <a href="/logout">Logout</a>
+    {% for err in messages %}
+    <p style=color:red>{{ err }}
+    {% endfor %}
+    <h1>Hello {{user.first_name}}! Create a Job!</h1>
+    <form action='/add_job' method ='post'>
+        {% csrf_token %}
+        Title: <input type= 'text' name='job'><br><br>
+        Description: <input type= 'text' name='description'><br><br>
+        Location: <input type= 'text' name='location'><br><br>
+        <button>Submit</button><br>
+    </form>
+    <form action='/dashboard' method='post'>
+        {% csrf_token %}
+    <button>Cancel</button>
+    </form>
+</body>
+</html>

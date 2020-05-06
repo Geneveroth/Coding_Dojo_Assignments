@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.main{
+    text-align: center;
+    border: 2px black solid;
+    display: inline-block;
+    padding: 3px;
+}
+.head{
+    padding: 10px;
+    border: 1px black solid;
+    display: table;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <form action='/add' method ='post'>
+        {% csrf_token %}
+        <button>New Job!</button>
+        <a href="/logout">Logout</a>
+    </form>
+    <h1>Hello {{user.first_name}}!</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td> {{job.job}} </td>
+                <td> {{job.location}} </td>
+                <td><a href="/view/{{job.id}}">View</a></td>
+                {% if user == job.job_uploader %} 
+                <td><a href="/update/{{job.id}}">Update</a></td>
+                <td><a href="/remove/{{job.id}}">Remove</a></td>
+                {% endif %}
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    
+    
+</body>
+</html>

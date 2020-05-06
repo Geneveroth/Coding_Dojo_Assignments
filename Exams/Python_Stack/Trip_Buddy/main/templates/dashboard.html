@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styledash.css' %}">
+    <title>Trip Buddy Dashboard</title>
+</head>
+<body>
+    <a class='logout' href='/logout'>Logout</a>
+    <form action='/trips/new'>
+        <button>Create a New Trip!</button>
+    </form>
+    <h1> Hello {{user.first_name}}!</h1>
+    <table>
+        <thead>
+            <tr class='titles'>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Plan</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trip in trips %}
+            <tr>
+                <td> <a href=/trips/{{trip.id}}>{{trip.destination}}</a></td>
+                <td> {{trip.start_date.date}} </td>
+                <td> {{trip.end_date.date}} </td>
+                <td> {{trip.plan}} </td>
+                {% if user == trip.creator %}
+                <td><a href="/trips/remove/{{trip.id}}">Remove</a>
+                <a href="/trips/edit/{{trip.id}}">Edit</a></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+</body>
+</html>

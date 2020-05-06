@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styleEdit.css' %}">
+    <title>New Trip</title>
+</head>
+<body>
+    {% for err in messages %}
+    <p class="error" style=color:red>{{ err }}
+    {% endfor %}
+    <div class=main>
+        <h1> Hello {{user.first_name}}! Lets edit your trip!</h1>
+        <form action='/edit_trip/{{trip.id}}' method ='post'> 
+            {% csrf_token %}
+            Destination: <input type= 'text' name='destination' value='{{trip.destination}}'><br><br>
+            Start Date: <input type= 'date' name='start_date' value='{{trip.start_date.date}}'><br><br>
+            End Date: <input type= 'date' name='end_date' value='{{trip.end_date.date}}'><br><br>
+            Plan: <textarea name='plan'>{{trip.plan}}</textarea><br><br>
+            <button>Submit</button>
+        </form>
+        <form action='/dashboard' method='post'>
+            {% csrf_token %}
+            <button>Cancel</button>
+        </form>
+    </div>
+</body>
+</html>

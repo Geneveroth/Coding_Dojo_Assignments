@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.error{
+    border:1px red solid;
+    text-align: center;
+    display: table;
+    vertical-align: top;
+    padding: 2px;
+}
+button{
+    box-shadow: 2px 2px;
+    padding: 3px;
+    border-radius: 3px;
+    margin:10px;
+}
+.main{
+    text-align: center;
+    border: 2px black solid;
+    display: inline-block;
+}
+h1{
+    padding: 10px;
+    border: 1px black solid;
+}

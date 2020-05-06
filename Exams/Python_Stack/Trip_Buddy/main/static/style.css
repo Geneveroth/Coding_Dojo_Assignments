@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+}
+.container{
+    padding:20px;
+    margin: 11px;
+}
+.error{
+    border:1px red solid;
+    text-align: center;
+    display: table;
+    vertical-align: top;
+    padding: 2px;
+}
+.reg{
+    border:2px black solid;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    padding: 25px;
+    margin-right: 50px;
+}
+.login{
+    border:2px black solid;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    padding: 25px;
+}
+.head{
+    padding:10px;
+    margin-bottom:15px;
+}
+.regHead{
+    margin: -18px 0 10px 0
+}
+
+.logHead{
+    margin: -18px 0 10px 0
+}
+.regButton{
+    float: right;
+    box-shadow: 2px 2px;
+    padding: 3px;
+    border-radius: 3px;
+}
+.logButton{
+    float: right;
+    box-shadow: 2px 2px;
+    padding: 3px;
+    border-radius: 3px;
+}

@@ -1,0 +1,30 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+h1{
+    padding:10px;
+    margin-bottom:15px;
+}
+button{
+    box-shadow: 2px 2px;
+    padding: 3px;
+    border-radius: 3px;
+    float: right;
+    margin-right:30px;
+}
+.logout{
+    float:right;
+}
+table, th, td{
+    border-collapse: collapse;
+    border:2px black solid;
+    padding: 7px;
+    text-align: center;
+}
+.titles{
+    background-color: lightgrey;
+}
+.destinations{
+  border: 2px black solid;
+}

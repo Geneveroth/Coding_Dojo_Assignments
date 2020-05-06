@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Log In and Registration</title>
+</head>
+<body>
+    <div class='container'>
+        <h1 class='head'>Welcome! Let's Travel!</h1>
+        {% for err in messages %}
+        <p class="error" style=color:red>{{ err }}
+        {% endfor %}
+        <div class="reg">
+            <h3 class=regHead> Registration</h3>
+            <form action="/registration" method="post">
+            {% csrf_token %}
+                <label for="first_name">First Name</label><br>
+                <input type="text" name="first_name"><br>
+                <label for="last_name">Last Name</label><br>
+                <input type="text" name="last_name"><br>
+                <label for="text">Email</label><br>
+                <input type="text" name="email"><br>
+                <label for="password">Password</label><br>
+                <input type="password" name="password"><br>
+                <label for="pw_confirm">Confirm PW</label><br>
+                <input type="password" name="pw_confirm"><br>
+                <input class =regButton type="submit" value="Register"><br>
+            </form>
+        </div>
+        <div class='login'>    
+        <h3 class=logHead> Login</h3>
+        <form action="/login" method="POST">
+            {% csrf_token %}
+                <label for="email">Email</label><br>
+                <input type="text" name="email"><br>
+                <label for="password">Password</label><br>
+                <input type="password" name="password"><br>
+                <input class=logButton type="submit" value="Log In"><br>
+            </form>
+        </div>
+    </div>    
+</body>
+</html>
