@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Book</title>
+</head>
+<body>
+    <a href='/logout'>Log Out</a>
+    <h1>Welcome {{user.first_name}}</h1>
+        <p>{{book.title}}</p>
+        <p>Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</p>
+        <p>Added on: {{book.created_at}}</p>
+        <p>Last Updated: {{book.updated_at}}</p>
+        <p>Description:{{book.desc}}</p>
+
+        <p>Users Who Like This Book:</p>
+        {% for book_liker in book.user_who_like.all %}
+        <li>{{book_liker.first_name}}</li>
+        {% endfor %}
+    </form>
+    
+</body>
+</html>

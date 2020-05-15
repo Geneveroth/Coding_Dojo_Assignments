@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books</title>
+</head>
+<body>
+    <a href='/logout'>Log Out</a>
+    {% for err in messages %}
+    <p style=color:red>{{ err }}
+    {% endfor %}
+    <h1>Welcome {{user.first_name}}!</h1>
+    <form action='/add_book' method ='post'> 
+        {% csrf_token %}
+        Title:<input type= 'text' name='title'><br><br>
+        Description:<textarea type= 'text' name='desc' row='30' columns='10'></textarea><br><br>
+        <button>Add</button>
+    </form>
+    <h1> All Books</h1>
+    {% for book in books %}
+    <!--need the for loop or else i am just showing the objects, not looping thru the values of the objects-->
+    <a href="/update_book/{{book.id}}">{{ book.title }}</a>
+    <!-- all hrefs must start with / or else it appends it to the existing url-->
+    <p>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</p>
+    {% endfor %}
+    <!-- if book is one of logged in user's favs
+        this is one of your favorites
+    else
+        href="new_link" -->
+    
+</body>
+</html>

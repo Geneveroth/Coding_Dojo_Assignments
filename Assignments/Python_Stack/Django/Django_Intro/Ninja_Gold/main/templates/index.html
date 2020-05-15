@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="top">
+        <h3>Your Gold:</h3>
+        <p id="goldCount">{{ gold_count }}</p>
+    </div>
+    <div id="middle">
+        <form action="/process_money" method='POST'>
+            {% csrf_token%}
+            <input name="name" type="hidden" value="farm">
+            <h2>Farm</h2>
+            <h3>(earns 10-20 gold)</h3>
+            <button id="farmButton">Find Gold!</button>
+        </form>
+        
+        <form action="/process_money" method='POST'>
+            {% csrf_token%}
+            <input name="name" type="hidden" value="cave">
+            <h2>Cave</h2>
+            <h3>(earns 5-10 gold)</h3>
+            <button id="caveButton">Find Gold!</button>
+        </form>
+
+        <form action="/process_money" method='POST'>
+            {% csrf_token%}
+            <input name="name" type="hidden" value="house">
+            <h2>House</h2>
+            <h3>(earns 2-5 gold)</h3>
+            <button id="houseButton">Find Gold!</button>
+        </form>
+
+        <form action="/process_money" method='POST'>
+            {% csrf_token%}
+            <input name="name" type="hidden" value="casino">
+           <h2>Casino</h2>
+           <h3>(earns/takes 0-50 gold)</h3>
+            <button id="casinoButton">Find Gold!</button>
+        </form>
+    </div>
+    <div id="bottom">
+        <h3>Activities:</h3>
+        <ul>
+            {% for activity in activities %}
+                {% if activity.amount > 0 %}
+                    <li id="positive">Earned {{activity.amount}} gold from the {{activity.location}} ({{activity.timestamp}})</li>
+                {% endif %}
+                {% if activity.amount < 0 %}
+                    <li id="negative">Entered the Casino and lost  {{activity.amount_abs}} gold...Ouch bro! ({{activity.timestamp}})</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+python manage.py shell
+from main.models import *
+
+3 Dojos:
+sanjose=Dojo.objects.create(name="San Jose", city="San Jose", state="CA")
+sandiego=Dojo.objects.create(name="San Diego", city="San Diego", state="CA")
+oakland=Dojo.objects.create(name="Oakland", city="oakland", state="CA")
+
+Deleting:
+>>> sanjose.delete()
+(1, {'main.Ninja': 0, 'main.Dojo': 1})
+
+>>> sandiego.delete()
+(1, {'main.Ninja': 0, 'main.Dojo': 1})
+
+
+>>> oakland.delete()
+(1, {'main.Ninja': 0, 'main.Dojo': 1})
+
+Creating 3 more Dojos:
+sanfran=Dojo.objects.create(name="Sanfran", city="Sanfran", state="CA")
+newyork=Dojo.objects.create(name="NewYork", city="NewYork", state="NY")
+losangeles=Dojo.objects.create(name="LosAngeles", city="LosAngeles", state="CA")
+
+ 
+ Query: Create 3 ninjas that belong to the first dojo
+>>> sanfranlocation=Dojo.objects.get(id=4)
+>>> isaac=Ninja.objects.create(dojo_id=sanfranlocation, first_name="isaac", last_name="santiago")
+>>> marty=Ninja.objects.create(dojo_id=sanfranlocation, first_name="marty", last_name="chavez")
+sam=Ninja.objects.create(dojo_id=sanfranlocation, first_name="sam", last_name="black")
+
+Query: Create 3 ninja users that belong to second dojo
+ Newyorklocation=Dojo.objects.get(id=5)
+ peter=Ninja.objects.create(dojo_id=Newyorklocation, first_name="peter", last_name="parker")
+kely=Ninja.objects.create(dojo_id=Newyorklocation, first_name="kely", last_name="paul")
+
+
+Query: create 3 ninja users that belong to third dojo
+tim=Ninja.objects.create(dojo_id=lalocation, first_name="tim", last_name="white")
+steph=Ninja.objects.create(dojo_id=lalocation, first_name="steph", last_name="brown")
+bob=Ninja.objects.create(dojo_id=lalocation, first_name="bob", last_name="green")
+
+Retrieve ninjas from first dojo
+>>> Sanfranninjas=Ninja.objects.filter(dojo_id=4)
+>>> print(Sanfranninjas)
+<QuerySet [<Ninja: Ninja object (1)>, <Ninja: Ninja object (2)>, <Ninja: Ninja object (3)>, <Ninja: Ninja object (6)>]>
+
+Retrieve ninjas from last dojos 
+>>> laninjas=Ninja.objects.filter(dojo_id=6)
+>>> print(laninjas)
+<QuerySet [<Ninja: Ninja object (8)>, <Ninja: Ninja object (9)>, <Ninja: Ninja object (10)>]>
+
+Add DESC default="old dojo":
+desc=models.TextField(default="old dojo")
+
+(djangoEnv) Isaacs-MacBook-Pro:dojoshell isaac$ python manage.py makemigrations
+Migrations for 'main':
+  main/migrations/0004_dojo_desc.py
+    - Add field desc to dojo
+(djangoEnv) Isaacs-MacBook-Pro:dojoshell isaac$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, main, sessions
+Running migrations:
+  Applying main.0004_dojo_desc... OK
+(djangoEnv) Isaacs-MacBook-Pro:dojoshell isaac$ python manage.py shell
+Python 3.7.7 (default, Mar 10 2020, 15:43:33) 
+[Clang 11.0.0 (clang-1100.0.33.17)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from main.models import *
+>>> 

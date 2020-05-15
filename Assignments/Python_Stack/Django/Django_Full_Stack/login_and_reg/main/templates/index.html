@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+</head>
+<body>
+    {% for err in messages %} <!--loops through all error messages-->
+    <p style=color:red>{{ err }} <!--shows the specific error-->
+    {% endfor %}
+    <h1> Register</h1>
+    <form action="/success" method="POST">
+        {% csrf_token %}
+            <label for="first_name">First Name</label><br>
+            <input type="text" name="first_name"><br>
+            <label for="last_name">Last Name</label><br>
+            <input type="text" name="last_name"><br>
+            <label for="text">Email</label><br>
+            <input type="text" name="email"><br>
+            <label for="password">Password</label><br>
+            <input type="password" name="password"><br>
+            <label for="pw_confirm">Confirm PW</label><br>
+            <input type="password" name="pw_confirm"><br>
+            <input type="submit" value="Register"><br>
+        </form>
+    <h1> Login</h1>
+    <form action="/login" method="POST">
+        {% csrf_token %}
+            <label for="email">Email</label>
+            <input type="text" name="email">
+            <label for="password">Password</label>
+            <input type="text" name="password">
+            <input type="submit" value="Log In">
+        </form>
+    
+</body>
+</html>
