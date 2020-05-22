@@ -1,0 +1,18 @@
+<form action='' method ='post'> 
+    {% csrf_token %}
+    Input_name: <input type= '' name='name of input'>
+    Input_name: <input type= '' name='name of input'>
+    Input_name: <input type= '' name='name of input'>
+    <button>Button_Name</button>
+</form>
+
+<select name="name_from_POST_in_views">
+    {% for name_you_choose in  name_in_context %}
+    <option name=”whatever_name” value=  {{ name_you_choose.id}}>{{name_you_choose.name}}</option>
+    <option name=”whatever_name” value=  {{ name_you_choose.id}}>{{name_you_choose.name}}</option>
+    <option name=”whatever_name” value=  {{ name_you_choose.id}}>{{name_you_choose.name}}</option>
+    <option name=”whatever_name” value=  {{ name_you_choose.id}}>{{name_you_choose.name}}</option>
+    {% endfor %}
+</select>
+    
+    

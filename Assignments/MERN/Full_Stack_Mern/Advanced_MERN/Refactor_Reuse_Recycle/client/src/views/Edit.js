@@ -27,5 +27,4 @@ export default ({id}) => {
                 />
             <DeleteButton id={product._id} success={()=>navigate('/')}/>
         </div>
-    )
-}
+    }

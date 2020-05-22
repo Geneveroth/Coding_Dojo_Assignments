@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Book</title>
+</head>
+<body>
+    <a href="/logout">Log Out</a>
+    <h1>Welcome {{user.first_name}}</h1>
+        <h2>{{books.title}}</h2>
+        <p>Added by {{books.uploaded_by.first_name}}</p>
+        <p>Added on: {{books.created_at}}</p>
+        <p>Updated on : {{books.updated_at}}</p>
+        <p>Description: {{books.description}}</p>
+    </form>
+    
+</body>
+</html>
