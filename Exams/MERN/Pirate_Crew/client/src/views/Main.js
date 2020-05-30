@@ -10,7 +10,7 @@ export default ()=>{
         axios.get('http://localhost:8000/api/pirate')
         .then(response=>setAllPirates(response.data))
         .catch(()=>setHasError(true));
-    },[allPirates]);
+    },[]);
 
     function handleDelete(id){
         axios.delete('http://localhost:8000/api/pirate/'+id)
