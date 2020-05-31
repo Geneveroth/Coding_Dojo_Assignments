@@ -6,5 +6,4 @@ Technologies Used:
 -CSS
 -jQuery
 
-Demo:
 ![Searcher](https://media.giphy.com/media/dvHbmzg2nvS9CDKGAF/giphy.gif)
