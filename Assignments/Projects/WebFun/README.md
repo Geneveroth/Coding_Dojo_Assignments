@@ -1,7 +1,11 @@
+#EverQuest II Item Searcher
+
 Description: 
+
 -Simple search application for browsing items in a video game matching various search criteria
 
 Technologies Used:
+
 -HTML
 -CSS
 -jQuery
