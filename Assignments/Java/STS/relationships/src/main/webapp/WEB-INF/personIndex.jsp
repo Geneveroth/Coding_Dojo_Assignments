@@ -18,7 +18,7 @@
     <p>
         <form:label path="lastName">Last Name</form:label>
         <form:errors path="lastName"/>
-        <form:textarea path="lastName"/>
+        <form:input path="lastName"/>
     </p>    
     <input type="submit" value="Submit"/>
 </form:form>    

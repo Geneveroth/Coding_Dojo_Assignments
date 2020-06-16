@@ -28,12 +28,19 @@ public class Person {
 	private Date createdAt;
 	
 	private Date updatedAt;
-	@OneToOne(mappedBy="person", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	
+	@OneToOne(mappedBy="person", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private License license;
 	 
 	public Person() {
 	     
+	}
+	
+	public Person(String firstName, String lastName, Date createdAt, Date updatedAt) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 
 	public Long getId() {

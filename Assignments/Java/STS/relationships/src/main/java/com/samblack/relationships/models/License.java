@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="licenses")
 public class License {
@@ -22,6 +24,7 @@ public class License {
 	
 	private String number;
 	
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	private Date expirationDate;
 	
 	private String state;
@@ -33,7 +36,7 @@ public class License {
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="person_id")
-	private Person person;
+	private Person person;//license has one person
 	
 	public License() {
 	     
