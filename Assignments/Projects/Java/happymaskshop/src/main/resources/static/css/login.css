@@ -1,0 +1,15 @@
+body{
+	background-color:antiquewhite;
+}
+.container{
+	text-align:center;
+	border:inset;
+	background-color:white;
+	width:236px;
+	height:272px;
+}
+.logo{
+	border-radius:10px;
+	border:inset;
+	width:420px;
+}

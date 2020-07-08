@@ -1,0 +1,46 @@
+body{
+	background-color:antiquewhite;
+}
+.header{
+	border:inset;
+	float:right;
+	width:151px;
+	padding:6px;
+	text-align:center;
+	background-color:white;
+	border-radius:10px;
+	
+}
+#carouselExampleCaptions, .carouselImg{
+	width:260px;
+	height:150px;
+	border:lightgrey 2px solid;
+	border-radius:5px;
+}
+.title, .desc{
+	color: darkgrey;
+	text-shadow: 1px 2px black;
+}
+.logo{
+	border-radius:10px;
+	border:inset;
+}
+.logoOrder{
+	border-radius:10px;
+	border:inset;
+	width:356px;
+}
+.create{
+	font-size:smaller;
+}
+#order{
+	border: inset;
+    background-color: white;
+    height: 136px;
+    width:530px;
+}
+#cart{
+	border: inset;
+    background: white;
+    width: 810px;
+}

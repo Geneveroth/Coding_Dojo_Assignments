@@ -15,7 +15,7 @@
 	    <input type="hidden" name="_method" value="put">
 	    <form:label path="idea">Idea</form:label>
 			<p style="color:red"><c:out value="${nameError}"/></p>
-			<form:input path="idea"/><br>
+			<form:input path="idea"/><br> 
 	   <input type="submit" value="Submit"/>
 	</form:form>
 	   <form action="/ideas/${idea.id}" method="post">
