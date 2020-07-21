@@ -3,18 +3,20 @@
 
 Description:
 
--Simple store front for selling face masks.
+-Storefront with integrated login and registration as well as inventory management
 
 Technologies Used:
 
 -Java
 
--Spring Boot
-
--CSS
+-JSP
 
 -Bootstrap
 
--JSP
+-CSS
+
+-Spring Boot
+
+-MySql
 
 ![Alt Text](https://media.giphy.com/media/Q8Ui7u4X1MEjoi9qHP/giphy.gif)
